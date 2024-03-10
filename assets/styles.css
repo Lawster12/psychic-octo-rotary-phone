@@ -1,23 +1,44 @@
 :root{
     --background-color: beige;
-    --accent-color: rgb(39, 101, 39);
-    --tertiary-color: lightblue;
+    --accent-color: #d4bc4d;
+    --tertiary-color: #8c66d2;
     --focus-color: darkblue;
+    --border-radius: 20px;
+}
+/* Grouping all common traits between elements, easier to make global changes. Same goes for the variables in root. */
+ body, nav, main, section, article, p{
+    display: flex;
+    flex-wrap: wrap;
+} 
+main, section, article{
+    position: relative;
+    border: 5px groove var(--tertiary-color);
+    border-radius: var(--border-radius);
+}
+.headliner{
+    width: 60%;
+}
+/* class to contain my navigation elements */
+.separate{
+    background-color: rgb(140, 102, 210, 0.75);
+    flex-direction: column;
+    display: flex;
+    position: fixed;
+    top:8px;
+    height: auto;
+    padding: 5px;
+    left:10px;
+    border: 3px solid black;
+    border-radius: var(--border-radius);
 }
 
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: var(--background-color);
-    display: flex;
     font-size: large;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    flex-direction: row;
 }
 
 header{
-    flex-direction: row;
-    justify-content: flex-start;
     text-align: center;
     padding: 20px;
     background-color: var(--accent-color);
@@ -25,51 +46,32 @@ header{
 }
 
 nav{
-    flex-direction: row;
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--tertiary-color);
-    width:100%;
+    flex-direction: column;
+    width: 100%;
 }
 
 nav a{
     padding: 10px;
-    color: var(--accent-color);
+    color: black;
 }
 
 nav a:hover{
     background-color:burlywood;
 }
-
+/* container for sections */
 main{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     justify-content: space-evenly;
     margin: 50px;
-    width:60%;
+    width:80%;
+    left: 10%; 
     min-height: 1000px;
-    border-width: 8px;
-    border-style: groove;
-    border-radius: 5px;
-    border-color:var(--tertiary-color);
 }
 
 main section{
-    flex:1;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    flex-direction: row;
+    border-color: var(--accent-color);
     min-width: 75%;
-    margin: 5px;
+    margin: 20px;
     height: auto;
-    border-width: 3px;
-    border-style: groove;
-    border-radius: 5px;
-    border-color: black;
-    box-sizing: border-box;
 }
 
 section:target{
@@ -82,17 +84,18 @@ main section img{
     width: 500px;
     padding: 10px;
     max-width: 80%;
-    height:400px;
-    max-height: 80%;
+    max-height:400px;
 
 }
 
+article ul img{
+    max-width: 50%;
+    max-height: 50%;
+}
+
 main section p{
-    flex: 500px;
-    margin: 10px 40px 0 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex: 5;
+    margin: 10px;
 }
 
 main section h2{
@@ -100,45 +103,45 @@ main section h2{
     top: 10px; 
     left: 10px;
     margin: 0;
-    z-index: 1; 
 }
 
-aside{
-    display:flex;
-    flex-wrap: wrap;
-    position: relative;
+article, #Contact{
     margin: 50px;
-    width:20%; 
-    border-width: 8px;
-    border-style: groove;
-    border-color: var(--tertiary-color);
-    flex-direction: column;
+    left:10%;
+    width:80%;
+    text-align: center;
+    justify-content: space-around; 
+}
+
+article:target{
+    border-color: var(--focus-color);
+}
+
+article img{
+    border: 5px groove var(--accent-color);
+    border-radius: var(--border-radius);
+}
+
+article img:hover{
+    border: 10px groove var(--tertiary-color);
+}
+
+
+footer {
+    background-color: var(--tertiary-color);
+    padding: 10px;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px){
     body{
-        font-size: x-small;
+        font-size: small;
     }
-    main{
-        flex-direction: column;
+    main, body, article, section{
         margin:0;
     }
-    aside{
-        flex-direction: column;
-    }
-    img{
-        max-width: 100%;
-        height: auto;
+    article{
+        left:10%;
     }
 }
-
-@media screen and (max-width: 1875px){
-    main{
-        max-width: 650px;
-    }
-    aside{
-        width: 50%;
-    }
-}
-
 
