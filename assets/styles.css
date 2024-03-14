@@ -1,3 +1,4 @@
+/* declaring variables for ease of use and clean code */
 :root{
     --background-color: beige;
     --accent-color: #d4bc4d;
@@ -15,8 +16,23 @@ main, section, article{
     border: 5px groove var(--tertiary-color);
     border-radius: var(--border-radius);
 }
+/* makes the first picture of projects larger */
 .headliner{
     width: 60%;
+}
+/* this section is not displayed until checkbox is checked */
+.readMore{
+    display: none;
+}
+#checkbox, label{
+    margin: 5px;
+}
+#checkbox:checked + label + .readMore{
+    display: block;
+}
+/* other project pictures display smaller */
+.projPic{
+    width: 40%;
 }
 /* class to contain my navigation elements */
 .separate{
@@ -31,20 +47,20 @@ main, section, article{
     border: 3px solid black;
     border-radius: var(--border-radius);
 }
-
+/* sets rules for the whole body */
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: var(--background-color);
     font-size: large;
 }
-
+/* sets rules for the header */
 header{
     text-align: center;
     padding: 20px;
     background-color: var(--accent-color);
     width: 100%;
 }
-
+/* sets nav to a column format */
 nav{
     flex-direction: column;
     width: 100%;
@@ -54,26 +70,25 @@ nav a{
     padding: 10px;
     color: black;
 }
-
+/* when hovering over nav element the color will change */
 nav a:hover{
     background-color:burlywood;
 }
 /* container for sections */
 main{
-    justify-content: space-evenly;
     margin: 50px;
     width:80%;
     left: 10%; 
-    min-height: 1000px;
+    max-height: 1000px; 
 }
-
+/* each section within the main element or "About Me" section */
 main section{
     border-color: var(--accent-color);
     min-width: 75%;
     margin: 20px;
     height: auto;
 }
-
+/* changes the border color of the section that you have focused on to indicate where you are */
 section:target{
     border-color: var(--focus-color);
 }
@@ -97,7 +112,7 @@ main section p{
     flex: 5;
     margin: 10px;
 }
-
+/* Sets the "About Me" header to sir on top of the image */
 main section h2{
     position: absolute;
     top: 10px; 
@@ -116,32 +131,23 @@ article, #Contact{
 article:target{
     border-color: var(--focus-color);
 }
-
+/* sets the images within the "project" section to have a border */
 article img{
     border: 5px groove var(--accent-color);
     border-radius: var(--border-radius);
 }
-
+/* when the user hovers over the image the border changes to inform the user it is a clickable link */
 article img:hover{
     border: 10px groove var(--tertiary-color);
 }
-
-
-footer {
-    background-color: var(--tertiary-color);
-    padding: 10px;
-    text-align: center;
-}
-
+/* changes elements font size and margin to accomadate a smaller screen */
 @media screen and (max-width: 768px){
     body{
         font-size: small;
     }
-    main, body, article, section{
+    main, body, article, section, #Contact{
         margin:0;
     }
-    article{
-        left:10%;
-    }
+
 }
 
